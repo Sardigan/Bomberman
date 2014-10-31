@@ -1,5 +1,5 @@
 	 	 	
-Bomberman.
+<h3> Bomberman. </h3>
 
 
 Оглавление
