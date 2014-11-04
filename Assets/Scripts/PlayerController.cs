@@ -3,31 +3,23 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	public int speed = 5;
-
+	public float speed = 10f;
 	// Use this for initialization
 	void Start () {
 	
 	}
 	
+	
+	void FixedUpdate ()  {		 			
+		float move_x = Input.GetAxis("Horizontal");
+		float move_z = Input.GetAxis("Vertical");
+
+        rigidbody.velocity = new Vector3(move_x * speed, 0, rigidbody.velocity.z);
+        rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, move_z * speed);
+	}
+
 	// Update is called once per frame
 	void Update () {
-		
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) 
-		{ 			
-			transform.position += transform.forward * speed * Time.deltaTime;			
-		} 
-		if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) 
-		{ 
-			transform.position -= transform.forward * speed * Time.deltaTime;
-		} 
-		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
-		{ 
-			transform.position -= transform.right * speed * Time.deltaTime; 
-		} 
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) 
-		{ 
-			transform.position += transform.right * speed * Time.deltaTime;
-		}
+
 	}
 }
