@@ -3,14 +3,20 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
-    public Controller enemy;    
+    public Controller enemy;  
+	private float move_x;
 	// Use this for initialization
 	void Start () {
 	
 	}
-	
+	void Star () {
+		move_x = 2;
+		
+	}
+
 	// Update is called once per frame
 	void Update () {
-		enemy.Controlling(3, Random.Range(-1,1), Random.Range(-1,1));
+		this.Star ();
+		enemy.Controlling(1, move_x, 2);
 	}
 }
