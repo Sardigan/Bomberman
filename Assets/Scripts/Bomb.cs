@@ -4,7 +4,10 @@ using System.Collections;
 public class Bomb : MonoBehaviour
 {
 		private float tm = 0;
-		private bool b = true; 
+		private bool b1 = true;
+		private bool b2 = true;
+		public Transform explosion;
+		
 		// Use this for initialization
 		void Start ()
 		{
@@ -14,14 +17,17 @@ public class Bomb : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if ((int)Time.time == tm && b == true) {						
+				if ((int)Time.time == tm && b1 == true) {						
 						gameObject.AddComponent ("SphereCollider");	
-						b = false;
+						b1 = false;
 				}
-				
-				Destroy (gameObject, 10);
-				Debug.Log (Time.time);
-				
+				if ((int)Time.time == tm + 3 && b2 == true) {
+						Instantiate (explosion, new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z), 
+			                                            explosion.transform.rotation);
+						b2 = false;
+
+				}
+				Destroy (gameObject, 5);			
 		}
 
 }
