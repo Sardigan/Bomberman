@@ -18,11 +18,11 @@ public class Bomb : MonoBehaviour
 		void Update ()
 		{
 				if ((int)Time.time == tm && b1 == true) {						
-						gameObject.AddComponent ("SphereCollider");	
+						gameObject.AddComponent ("CircleCollider2D");	
 						b1 = false;
 				}
 				if ((int)Time.time == tm + 3 && b2 == true) {
-						Instantiate (explosion, new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z), 
+						Instantiate (explosion, new Vector3 (transform.position.x, transform.position.y, transform.position.z - 1), 
 			                                            explosion.transform.rotation);
 						b2 = false;
 

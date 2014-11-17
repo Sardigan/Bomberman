@@ -10,16 +10,16 @@ public class Explosion : MonoBehaviour
 	
 		}
 
-		void OnCollisionEnter (Collision col)
+		void OnCollisionEnter2D (Collision2D col)
 		{
-		if (col.gameObject.name == "Player" || col.gameObject.name == "Enemy" || col.gameObject.name == "box") {
+		if (col.gameObject.name == "Player" ||col.gameObject.name == "box" || col.gameObject.name == "Enemy" ) {
 						Destroy (col.gameObject);
 				}
 		}
 		// Update is called once per frame
 		void Update ()
-		{
-				Destroy (gameObject, 4);
+		{	
+				Destroy (gameObject, 3);
 	
 		}
 }

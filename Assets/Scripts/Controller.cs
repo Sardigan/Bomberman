@@ -4,9 +4,9 @@ using System.Collections;
 public class Controller: MonoBehaviour
 {
 			
-	public void Controlling (int speed, float move_x, float move_z)
+	public void Controlling (int speed, float move_x, float move_y)
 	{
-		rigidbody.velocity = new Vector3 (move_x * speed, 0, move_z * speed);
+		rigidbody2D.velocity = new Vector2 (move_x * speed, move_y * speed);
 	
 	}
 
