@@ -5,8 +5,8 @@ public class EnemyController : MonoBehaviour
 {
 
 		public Controller enemy;
-		private float move_x = 1;
-		private float move_y = 0;
+		private int move_x = 1;
+		private int move_y = 0;
 		// Use this for initialization
 		void Start ()
 		{
@@ -30,6 +30,9 @@ public class EnemyController : MonoBehaviour
 				if (col.gameObject.name == "wall4") {
 						move_x = 0;
 						move_y = 1;
+				}
+				if (col.gameObject.name == "Player") {
+						Destroy (col.gameObject);
 				}
 		
 		}	
