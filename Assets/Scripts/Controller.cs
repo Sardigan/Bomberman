@@ -10,4 +10,8 @@ public class Controller: MonoBehaviour
 	
 	}
 
+	public void PutBomb (float tm, bool exists, Transform bomb) 
+	{	
+
+	}
 }

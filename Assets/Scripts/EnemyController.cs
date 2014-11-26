@@ -5,12 +5,13 @@ public class EnemyController : MonoBehaviour
 {
 
 		public Controller enemy;
-		private int move_x = 1;
-		private int move_y = 0;
+		private int move_x;
+		private int move_y;
 		// Use this for initialization
 		void Start ()
 		{
-	
+				move_x = 0;
+				move_y = 0;
 		}
 
 		void OnCollisionEnter2D (Collision2D col)
@@ -39,7 +40,7 @@ public class EnemyController : MonoBehaviour
 	
 		// Update is called once per frame
 		void Update ()
-		{		
+		{
 				enemy.Controlling (1, move_x, move_y);
 		}
 }
