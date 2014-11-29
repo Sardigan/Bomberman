@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 		{
 				tm = (int)Time.time;
 		}
+
 		
 		// Update is called once per frame
 		void Update ()
