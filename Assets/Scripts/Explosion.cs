@@ -17,7 +17,7 @@ public class Explosion : MonoBehaviour
 						Destroy (col.gameObject);
 				}
 				if (col.gameObject.name == "Cube") {
-						Destroy (gameObject);		
+						//Destroy (gameObject);		
 				}
 		}
 		// Update is called once per frame
