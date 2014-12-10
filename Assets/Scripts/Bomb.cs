@@ -22,12 +22,11 @@ public class Bomb : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				Destroy (gameObject, power);	
+				Destroy (gameObject, power - 2);	
 		
 				if ((int)Time.time == (int)t - 1 && b1 == true) {						
 						gameObject.AddComponent ("CircleCollider2D");	
-						b1 = false;
-						//Debug.Log (2D ray1 = new Ray2D (transform.position, 
+						b1 = false;						
 				}
 				RaycastHit2D hit1;
 				RaycastHit2D hit2;

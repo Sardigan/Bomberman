@@ -13,66 +13,92 @@ public class EnemyController : MonoBehaviour
 		void Start ()
 		{
 				move_x = 1;
-				move_y = 1;
+				move_y = 0;
 				t = Time.time;
 		}
 
 		void OnCollisionEnter2D (Collision2D col)
-		{
-				/*if (col.gameObject.name == "wall1") {
-						move_x = 1;
-						move_y = 0;
-				}
-				if (col.gameObject.name == "wall2") {
-						move_x = 0;
-						move_y = -1;
-				}
-				if (col.gameObject.name == "wall3") {
-						move_x = -1;
-						move_y = 0;
-				}
-				if (col.gameObject.name == "wall4") {
-						move_x = 0;
-						move_y = 1;
-				}
+		{				
 				if (col.gameObject.name == "Player") {
 						Destroy (col.gameObject);
-				}*/
+				}
 		
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-				Vector3 fwd = transform.TransformDirection (Vector3.up);
-				if (Physics.Raycast (transform.position, fwd, 1f))
-						Debug.Log ("There is something in front of the object!");
-				enemy.Controlling (1, move_x, move_y);
+				RaycastHit2D hit1;
+				RaycastHit2D hit2;
+				RaycastHit2D hit3;
+				RaycastHit2D hit4;
 
-				if (Time.time > t && b == true) {
-						tmp = Random.Range (1, 5);
-						b = false;
-				}
-				if (tmp == 1) {
-						move_x = -1;
+				int x = (int)transform.position.x;
+				int y = (int)transform.position.y;
+
+				
+					
+			
+				hit1 = Physics2D.Raycast (new Vector2 (transform.position.x + 2, transform.position.y), Vector2.right, 0);
+				hit2 = Physics2D.Raycast (new Vector2 (transform.position.x - 2, transform.position.y), -Vector2.right, 0);
+				hit3 = Physics2D.Raycast (new Vector2 (transform.position.x, transform.position.y + 2), Vector2.up, 0);
+				hit4 = Physics2D.Raycast (new Vector2 (transform.position.x, transform.position.y - 2), -Vector2.up, 0);
+			
+				//right
+
+				if (hit1.collider != null && (hit1.collider.name == "Cube" || hit1.collider.name == "wall4" || hit1.collider.name == "box")) {										
+						move_x = -1;	
 						move_y = 0;
+						Debug.Log (hit1.collider.name);
+
 				}
-				if (tmp == 2) {
+				
+
+			
+				//left						
+			
+				if (hit2.collider != null && (hit2.collider.name == "Cube" || hit2.collider.name == "wall2" || hit2.collider.name == "box")) {
+						move_x = 1;
+						move_y = 0;
+						Debug.Log (hit2.collider.name);
+				}
+
+			
+				//up
+			
+
+				if (hit3.collider != null && (hit3.collider.name == "Cube" || hit3.collider.name == "wall3" || hit3.collider.name == "box")) {
+						move_x = 0;			
+						move_y = -1;
+						Debug.Log (hit3.collider.name);
+				} 
+
+			
+				//down						
+		
+				
+				if (hit4.collider != null && (hit4.collider.name == "Cube" || hit4.collider.name == "wall1" || hit4.collider.name == "box")) {
+						move_x = 0;			
+						move_y = 1;
+						Debug.Log (hit4.collider.name);
+				} 
+
+
+				
+				if (hit1.collider != null && hit2.collider != null && hit1.collider.name == "Cube" && hit2.collider.name == "Cube") {
+						move_x = 0;
+						move_y = 1;
+				}
+				if (hit3.collider != null && hit4.collider != null && hit3.collider.name == "Cube" && hit4.collider.name == "Cube") {
 						move_x = 1;
 						move_y = 0;
 				}
-				if (tmp == 3) {
-						move_x = 0;
-						move_y = -1;
-				}	
-				if (tmp == 4) {						
-						move_x = 0;
-						move_y = 1;
-				}	
-				if (Time.time - t > 1f) {
-						b = true;
+
 			
-				}
+
+
+				enemy.Controlling (1, move_x, move_y);
+		 
 				
 		}
 }
