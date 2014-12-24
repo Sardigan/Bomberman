@@ -22,8 +22,7 @@ public class Bomb : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				Destroy (gameObject, power - 2);	
-		
+				Destroy (gameObject, power - 2);
 				if ((int)Time.time == (int)t - 1 && b1 == true) {						
 						gameObject.AddComponent ("CircleCollider2D");	
 						b1 = false;						
@@ -45,7 +44,7 @@ public class Bomb : MonoBehaviour
 						
 						//right
 						if (b3 == true) {
-								Instantiate (explosion, new Vector3 (x + pos, y, transform.position.z - 1), 
+								Instantiate (explosion, new Vector3 (x + pos, y, transform.position.z), 
 				             explosion.transform.rotation);
 								if (hit1.collider != null && (hit1.collider.name == "Cube" || hit1.collider.name == "wall4" || hit1.collider.name == "box")) {										
 										b3 = false;
@@ -55,7 +54,7 @@ public class Bomb : MonoBehaviour
 
 						//left						
 						if (b4 == true) {
-								Instantiate (explosion, new Vector3 (x - pos, y, transform.position.z - 1), 
+								Instantiate (explosion, new Vector3 (x - pos, y, transform.position.z), 
 				             explosion.transform.rotation);
 								if (hit2.collider != null && (hit2.collider.name == "Cube" || hit2.collider.name == "wall2" || hit2.collider.name == "box")) {
 										b4 = false;
@@ -65,7 +64,7 @@ public class Bomb : MonoBehaviour
 						//up
 						
 						if (b5 == true) {
-								Instantiate (explosion, new Vector3 (x, y + pos, transform.position.z - 1), 
+								Instantiate (explosion, new Vector3 (x, y + pos, transform.position.z), 
 				             explosion.transform.rotation);
 								if (hit3.collider != null && (hit3.collider.name == "Cube" || hit3.collider.name == "wall3" || hit3.collider.name == "box")) {
 										b5 = false;
@@ -74,7 +73,7 @@ public class Bomb : MonoBehaviour
 			
 						//down						
 						if (b6 == true) {
-								Instantiate (explosion, new Vector3 (x, y - pos, transform.position.z - 1),	
+								Instantiate (explosion, new Vector3 (x, y - pos, transform.position.z),	
 				             explosion.transform.rotation);
 								if (hit4.collider != null && (hit4.collider.name == "Cube" || hit4.collider.name == "wall1" || hit4.collider.name == "box")) {
 										b6 = false;

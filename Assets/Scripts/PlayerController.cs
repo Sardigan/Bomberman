@@ -4,14 +4,13 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 		public Controller player;
-		public int speed = 5;
+		public int speed;
 		public Transform bomb;
-		private bool exists = false;
-		private float tm;
+		private bool exists = false;		
 
 		void Start ()
 		{
-				tm = (int)Time.time;
+				
 		}
 
 		
@@ -33,11 +32,10 @@ public class PlayerController : MonoBehaviour
 				if (Input.GetKeyDown ("space") && exists == false) {            
 						Instantiate (bomb, new Vector3 (x, y, transform.position.z), 
 				             Quaternion.identity);
-						exists = true;	
-						tm += 10;
+						exists = true;							
 				}
-				if ((int)Time.time == tm) {						
-						exists = false;						
+				if (GameObject.Find ("Bomb(Clone)") == null) {
+						exists = false;
 				}
 		}
 

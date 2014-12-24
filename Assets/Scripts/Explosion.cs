@@ -4,7 +4,6 @@ using System.Collections;
 public class Explosion : MonoBehaviour
 {	
 		
-		
 		// Use this for initialization
 		void Start ()
 		{
@@ -15,9 +14,6 @@ public class Explosion : MonoBehaviour
 		{
 				if (col.gameObject.name == "Player" || col.gameObject.name == "box" || col.gameObject.name == "Enemy") {
 						Destroy (col.gameObject);
-				}
-				if (col.gameObject.name == "Cube") {
-						//Destroy (gameObject);		
 				}
 		}
 		// Update is called once per frame

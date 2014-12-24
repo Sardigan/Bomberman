@@ -6,12 +6,6 @@ public class Controller: MonoBehaviour
 			
 	public void Controlling (int speed, int move_x, int move_y)
 	{
-		rigidbody2D.velocity = new Vector2 (move_x * speed, move_y * speed);
-	
-	}
-
-	public void PutBomb (float tm, bool exists, Transform bomb) 
-	{	
-
+		rigidbody2D.velocity = new Vector2 (move_x * speed, move_y * speed);	
 	}
 }
