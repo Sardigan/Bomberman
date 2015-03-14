@@ -4,9 +4,9 @@ using System.Collections;
 public class EnemyController : MonoBehaviour
 {
 		public Controller enemy;
-		private int move_x;
-		private int move_y;
-		private bool b = false;
+		private float move_x;
+		private float move_y;
+		//private bool b = false;
 		private float t = 0;
 		private int tmp = 0;
 		private int x;

@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 0236a75ef2391f84bb373558a80d59a8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Sprite0
+    21300002: Sprite1
+    21300004: Sprite1.1
+    21300006: Sprite1.2
+    21300008: Sprite0.1
+    21300010: Sprite0.2
+    21300012: Sprite2
+    21300014: Sprite2.1
+    21300016: Sprite2.2
+    21300018: Bomb1
+    21300020: Bomb2
+    21300022: Bomb3
+    21300024: Center1
+    21300026: Center2
+    21300028: Center3
+    21300030: Center4
+    21300032: "\u04211L"
+    21300034: C1LE
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Sprite0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 534
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 480
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite1.1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 480
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite1.2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 480
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite0.1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 534
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite0.2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 534
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 506
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite2.1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 506
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite2.2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 506
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bomb1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 448
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bomb2
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 447
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bomb3
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 447
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Center1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 175
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Center2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 175
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Center3
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 63
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Center4
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 62
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "\u04211L"
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 179
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: C1LE
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 179
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
