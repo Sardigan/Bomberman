@@ -4,6 +4,7 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: explsn
     21300002: explosions_1
+    21300004: expl
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,6 +63,16 @@ TextureImporter:
         y: 399
         width: 48
         height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: expl
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 340
+        width: 37
+        height: 30
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

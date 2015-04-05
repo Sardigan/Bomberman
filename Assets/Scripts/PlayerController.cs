@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
 				if (GameObject.Find ("Bomb(Clone)") == null) {
 						exists = false;
 				}
-
 				if (Input.GetAxis ("Horizontal") < 0 && !isFacingRight)
 						Flip ();
 				else if (Input.GetAxis ("Horizontal") > 0 && isFacingRight)
@@ -51,13 +50,11 @@ public class PlayerController : MonoBehaviour
 
 		private void Flip ()
 		{
-				
+	
 				isFacingRight = !isFacingRight;				
 				Vector3 theScale = transform.localScale;				
 				theScale.x *= -1;				
 				transform.localScale = theScale;
-		}
-
-		
+		}	
 		
 }

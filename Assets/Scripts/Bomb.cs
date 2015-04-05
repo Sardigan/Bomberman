@@ -3,95 +3,115 @@ using System.Collections;
 
 public class Bomb : MonoBehaviour
 {
+			
 		public  int power;
 		private float t = 0;
 		private int pos = 0;
-		private bool b1 = true;
-		private bool b2 = true;
-		private bool b3 = true;
-		private bool b4 = true;
-		private bool b5 = true;
-		private bool b6 = true;
+		private int tmp = 0;
+		private bool hasCollider = false;
+		private bool b = true;
+		private bool isRightFree = true;
+		private bool isLeftFree = true;
+		private bool isUpFree = true;
+		private bool isDownFree = true;
 		public Transform explosion;		
 		
 		// Use this for initialization
 		void Start ()
 		{					
 				t = Time.time + 3;
+				
 		}
 		// Update is called once per frame
 		void Update ()
 		{
-				Destroy (gameObject, power / 2);
-				if ((int)Time.time == (int)t - 1 && b1 == true) {						
+				Destroy (gameObject, 3 + power * 0.2f);
+				if ((int)Time.time == (int)t - 1 && hasCollider == false) {						
 						gameObject.AddComponent ("CircleCollider2D");	
-						b1 = false;						
+						hasCollider = true;						
 				}
-				RaycastHit2D hit1;
-				RaycastHit2D hit2;
-				RaycastHit2D hit3;
-				RaycastHit2D hit4;
+				RaycastHit2D hitRight;
+				RaycastHit2D hitLeft;
+				RaycastHit2D hitUp;
+				RaycastHit2D hitDown;
+
 
 				int x = (int)transform.position.x;
 				int y = (int)transform.position.y;
+				
 
-				if (Time.time > t && b2 == true && pos < power) {						
+				if (Time.time > t && b == true && tmp <= power) {						
 
-						hit1 = Physics2D.Raycast (new Vector2 (x + pos, y), Vector2.right, 0);
-						hit2 = Physics2D.Raycast (new Vector2 (x - pos, y), -Vector2.right, 0);
-						hit3 = Physics2D.Raycast (new Vector2 (x, y + pos), Vector2.up, 0);
-						hit4 = Physics2D.Raycast (new Vector2 (x, y - pos), -Vector2.up, 0);
+						hitRight = Physics2D.Raycast (new Vector2 (x + pos, y), Vector2.right, 0);
+						hitLeft = Physics2D.Raycast (new Vector2 (x - pos, y), -Vector2.right, 0);
+						hitUp = Physics2D.Raycast (new Vector2 (x, y + pos), Vector2.up, 0);
+						hitDown = Physics2D.Raycast (new Vector2 (x, y - pos), -Vector2.up, 0);
 
-						if (hit1.collider != null && (hit1.collider.name == "Cube" || hit1.collider.name == "wall4" || hit1.collider.name == "box")) {										
-								b3 = false;
+						if (hitRight.collider != null && (hitRight.collider.name == "Cube" || hitRight.collider.name == "wall4")) {										
+								isRightFree = false;
+						}
+						if (hitLeft.collider != null && (hitLeft.collider.name == "Cube" || hitLeft.collider.name == "wall2")) {
+								isLeftFree = false;								
+						}
+			
+						if (hitUp.collider != null && (hitUp.collider.name == "Cube" || hitUp.collider.name == "wall3")) {
+								isUpFree = false;						
+
+						}
+			
+						if (hitDown.collider != null && (hitDown.collider.name == "Cube" || hitDown.collider.name == "wall1")) {
+								isDownFree = false;								
 						}
 
-						if (hit2.collider != null && (hit2.collider.name == "Cube" || hit2.collider.name == "wall2" || hit2.collider.name == "box")) {
-								b4 = false;
-						}
-
-						if (hit3.collider != null && (hit3.collider.name == "Cube" || hit3.collider.name == "wall3" || hit3.collider.name == "box")) {
-								b5 = false;
-						}
-
-						if (hit4.collider != null && (hit4.collider.name == "Cube" || hit4.collider.name == "wall1" || hit4.collider.name == "box")) {
-								b6 = false;
-						}
-						
 						//right
-						if (b3 == true) {								
+						if (isRightFree) {
 								Instantiate (explosion, new Vector3 (x + pos, y, transform.position.z), 
-				             new Quaternion (0, 0, 0, 0));							
+				             Quaternion.Euler (0, 0, 0));
+								if (hitRight.collider != null && hitRight.collider.name == "box") {										
+										isRightFree = false;
+										Destroy (hitRight.transform.gameObject);
+								}
 						}
 
 						//left						
-						if (b4 == true) {								
+						if (isLeftFree) {								
 								Instantiate (explosion, new Vector3 (x - pos, y, transform.position.z), 
-				             new Quaternion (0, 180, 0, 0));								
+				             Quaternion.Euler (0, 180, 0));
+								if (hitLeft.collider != null && hitLeft.collider.name == "box") {										
+										isLeftFree = false;
+										Destroy (hitLeft.transform.gameObject);
+								}
 						}
 			
-						//up
-						
-						if (b5 == true) {								
+						//up						
+						if (isUpFree) {								
 								Instantiate (explosion, new Vector3 (x, y + pos, transform.position.z), 
-				             new Quaternion (0, 0, 0, 0));								 
+				             Quaternion.Euler (0, 0, 90));	
+								if (hitUp.collider != null && hitUp.collider.name == "box") {										
+										isUpFree = false;
+										Destroy (hitUp.transform.gameObject);
+								}
 						}
-			
+
 						//down						
-						if (b6 == true) {								
+						if (isDownFree) {								
 								Instantiate (explosion, new Vector3 (x, y - pos, transform.position.z),	
-				             new Quaternion (0, 0, 0, 0));								 
+				             Quaternion.Euler (0, 0, 270));	
+								if (hitDown.collider != null && hitDown.collider.name == "box") {										
+										isDownFree = false;
+										Destroy (hitDown.transform.gameObject);
+								}
 						}
 			
-						b2 = false;	
+						b = false;	
 						t = Time.time;
 						pos += 2;
+						tmp++;
 			
 				}
 						
 				if (Time.time - t > 0.2f) {
-						b2 = true;
-						
+						b = true;						
 				}
 		}
 

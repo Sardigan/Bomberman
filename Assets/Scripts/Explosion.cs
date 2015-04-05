@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Explosion : MonoBehaviour
 {	
-		
+			
 		// Use this for initialization
 		void Start ()
 		{
@@ -12,14 +12,14 @@ public class Explosion : MonoBehaviour
 
 		void OnTriggerEnter2D (Collider2D col)
 		{
-				if (col.gameObject.name == "Player" || col.gameObject.name == "box" || col.gameObject.name == "Enemy") {
-						Destroy (col.gameObject);
+		if (col.gameObject.name == "Player"  || col.gameObject.name == "Enemy") {
+						Destroy (col.gameObject, 0.2f);
 				}
 		}
 		// Update is called once per frame
 		void Update ()
 		{				
-				Destroy (gameObject, 3);	
+				Destroy (gameObject, 2);	
 				
 		}
 }

@@ -20,6 +20,15 @@ TextureImporter:
     21300030: Center4
     21300032: "\u04211L"
     21300034: C1LE
+    21300036: Enemy0
+    21300038: Enemy0.1
+    21300040: Enemy0.2
+    21300042: Enemy1
+    21300044: Enemy1.1
+    21300046: Enemy1.2
+    21300048: Enemy2
+    21300050: Enemy2.1
+    21300052: Enemy2.2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -238,6 +247,96 @@ TextureImporter:
         y: 179
         width: 7
         height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy0
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 537
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy0.1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 536
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy0.2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 537
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 480
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy1.1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 480
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy1.2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 480
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy2
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 509
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy2.1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 509
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy2.2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 508
+        width: 17
+        height: 21
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
