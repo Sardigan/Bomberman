@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 		public Controller enemy;
 		private float move_x;
 		private float move_y;
-		private bool isFacingRight = true;
+		private bool isFacingLeft = true;
 		private Animator anim;
 		private float t = 0;
 		private int tmp = 0;
@@ -551,16 +551,16 @@ public class EnemyController : MonoBehaviour
 				anim.SetInteger ("SpeedH", (int)move_x);
 
 	
-				if (move_x < 0 && !isFacingRight)
+				if (move_x < 0 && !isFacingLeft)
 						Flip ();
-				else if (move_x > 0 && isFacingRight)
+				else if (move_x > 0 && isFacingLeft)
 						Flip ();
 		}
 
 		private void Flip ()
 		{
 	
-				isFacingRight = !isFacingRight;				
+				isFacingLeft = !isFacingLeft;				
 				Vector3 theScale = transform.localScale;				
 				theScale.x *= -1;				
 				transform.localScale = theScale;

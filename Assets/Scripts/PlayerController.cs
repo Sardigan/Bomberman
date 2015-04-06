@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
 		public Transform bomb;
 		private bool exists = false;
 		private Animator anim;
-		private bool isFacingRight = true;
+		private bool isFacingLeft = true;
+		public Transform activator;
 
 		void Start ()
 		{
@@ -36,22 +37,24 @@ public class PlayerController : MonoBehaviour
 			
 				if (Input.GetKeyDown ("space") && exists == false) {            
 						Instantiate (bomb, new Vector3 (x, y, transform.position.z), 
-				             Quaternion.identity);
-						exists = true;							
+				             Quaternion.identity);	
+						Instantiate (activator, new Vector3 (x, y, transform.position.z), 
+			             Quaternion.identity);
+						exists = true;						
 				}
-				if (GameObject.Find ("Bomb(Clone)") == null) {
+				if (GameObject.Find ("Activator(Clone)") == null) {
 						exists = false;
 				}
-				if (Input.GetAxis ("Horizontal") < 0 && !isFacingRight)
+
+				if (Input.GetAxis ("Horizontal") < 0 && !isFacingLeft)
 						Flip ();
-				else if (Input.GetAxis ("Horizontal") > 0 && isFacingRight)
+				else if (Input.GetAxis ("Horizontal") > 0 && isFacingLeft)
 						Flip ();
 		}
 
 		private void Flip ()
-		{
-	
-				isFacingRight = !isFacingRight;				
+		{	
+				isFacingLeft = !isFacingLeft;				
 				Vector3 theScale = transform.localScale;				
 				theScale.x *= -1;				
 				transform.localScale = theScale;
