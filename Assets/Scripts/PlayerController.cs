@@ -16,11 +16,13 @@ public class PlayerController : MonoBehaviour
 				anim = GetComponent<Animator> ();	
 		}
 
-		
+		void FixedUpdate ()
+		{	
+				player.Controlling (speed, Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
+		}
 		// Update is called once per frame
 		void Update ()
-		{					
-				player.Controlling (speed, Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
+		{				
 				int x = Mathf.RoundToInt (transform.position.x);
 				int y = Mathf.RoundToInt (transform.position.y);
 

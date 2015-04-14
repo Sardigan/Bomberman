@@ -10,7 +10,6 @@ public class EnemyController : MonoBehaviour
 		private Animator anim;
 		private float t = 0;
 		private int tmp = 0;
-		
 		private int n = 35;
 		private int[] b;
 		// Use this for initialization
@@ -33,13 +32,14 @@ public class EnemyController : MonoBehaviour
 				}
 		
 		}
-	
+
+		void FixedUpdate ()
+		{	
+				enemy.Controlling (10, move_x, move_y);
+		}
 		// Update is called once per frame
 		void Update ()
-		{		
-
-				enemy.Controlling (2, move_x, move_y);	
-
+		{	
 				RaycastHit2D hitRight;
 				RaycastHit2D hitLeft;
 				RaycastHit2D hitUp;

@@ -20,7 +20,7 @@ public class Bomb : MonoBehaviour
 		{
 					
 				if ((int)Time.time == (int)t - 1 && hasCollider == false) {						
-						gameObject.AddComponent ("CircleCollider2D");	
+						gameObject.AddComponent <CircleCollider2D>();	
 						hasCollider = true;						
 				}
 				

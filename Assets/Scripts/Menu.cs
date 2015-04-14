@@ -13,7 +13,7 @@ public class Menu : MonoBehaviour
 				if (GUI.Button (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 170, 280, 80), "New game")) { 
 						Application.LoadLevel (name_level);             
 				}
-				if (GUI.Button (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 85, 280, 80), "Options")) {   
+				if (GUI.Button (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 85, 280, 80), "Options")) {  
 								
 				}
 		
