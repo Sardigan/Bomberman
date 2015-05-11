@@ -11,11 +11,7 @@ public class ControllerForPhone : MonoBehaviour
 		private Animator anim;
 		private bool isFacingLeft = true;
 		public Transform activator;
-		private bool pressed = false;
-		private bool pressedUp = false;
-		private bool pressedDown = false;
-		private bool pressedRight = false;
-		private bool pressedLeft = false;
+		private bool pressedBomb = false;		
 		public float move_x = 0;
 		public float move_y = 0;
 	
@@ -25,62 +21,53 @@ public class ControllerForPhone : MonoBehaviour
 		
 		}
 
-		public void SetUpBomb ()
+		public void PressedBomb ()
 		{
-				pressed = true;
+				pressedBomb = true;
+		}
+		
+		public void Pressed ()
+		{
+				move_x = 0;
+				move_y = 0;
+
 		}
 
 		public void Up ()
 		{
-				pressedUp = true;
 				move_x = 0;
 				move_y = 1;
 		}
 
 		public void Down ()
 		{
-				pressedDown = true;
 				move_x = 0;
 				move_y = -1;
 		}
 
 		public void Right ()
 		{
-				pressedRight = true;
 				move_x = 1;
 				move_y = 0;
 		}
 
 		public void Left ()
 		{
-				pressedLeft = true;
 				move_x = -1;
 				move_y = 0;
 		}
 	
 		void FixedUpdate ()
 		{
-				if (pressedUp == true || pressedDown == true || pressedRight == true || pressedLeft == true) {
-						player.Controlling (speed, move_x, move_y);
-						pressedUp = false;
-						pressedDown = false;
-						pressedRight = false;
-						pressedLeft = false;
-			anim.SetInteger ("SpeedV", (int)move_y);
-			anim.SetInteger ("SpeedH", (int)move_x);
-				}
+				player.Controlling (speed, move_x, move_y);
 		}
+
 	
 		// Update is called once per frame
 		public void Update ()
 		{				
 				int x = Mathf.RoundToInt (transform.position.x);
-				int y = Mathf.RoundToInt (transform.position.y);
-		
-				
-		
-		
-		
+				int y = Mathf.RoundToInt (transform.position.y);		
 		
 				if (x % 2 != 0) {
 						x = x - 1;
@@ -91,17 +78,19 @@ public class ControllerForPhone : MonoBehaviour
 				}
 		
 		
-				if (pressed == true && exists == false) {            
+				if (pressedBomb == true && exists == false) {            
 						Instantiate (bomb, new Vector3 (x, y, transform.position.z), 
 			             Quaternion.identity);	
 						Instantiate (activator, new Vector3 (x, y, transform.position.z), 
 			             Quaternion.identity);
-						pressed = false;
+						pressedBomb = false;
 						exists = true;							
 				}
 				if (GameObject.Find ("Activator(Clone)") == null) {
 						exists = false;
 				}
+				anim.SetInteger ("SpeedV", (int)move_y);
+				anim.SetInteger ("SpeedH", (int)move_x);
 		
 				if (move_x < 0 && !isFacingLeft)
 						Flip ();

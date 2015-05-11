@@ -5,6 +5,7 @@ public class Restart : MonoBehaviour
 {
 
 		public string name_level;
+		public string name_level1;
 		private int t;
 		private bool isPlayerLive = true;		
 
@@ -23,6 +24,9 @@ public class Restart : MonoBehaviour
 				}
 				if (isPlayerLive == false && Time.time > t) {
 						Application.LoadLevel (name_level);
+				}
+				if ((int)GameObject.Find ("Player").transform.position.x == (int)GameObject.Find ("Door").transform.position.x && (int)GameObject.Find ("Player").transform.position.y == (int)GameObject.Find ("Door").transform.position.y) {
+						Application.LoadLevel (name_level1);									
 				}
 		}
 }

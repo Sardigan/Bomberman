@@ -9,8 +9,7 @@ public class PlayerController : MonoBehaviour
 		private bool exists = false;
 		private Animator anim;
 		private bool isFacingLeft = true;
-		public Transform activator;
-
+		public Transform activator;		
 
 		void Start ()
 		{
@@ -23,6 +22,7 @@ public class PlayerController : MonoBehaviour
 				
 				player.Controlling (speed, Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
 		}
+		
 
 		// Update is called once per frame
 		public void Update ()

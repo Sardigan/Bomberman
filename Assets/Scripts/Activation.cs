@@ -18,11 +18,13 @@ public class Activation : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{	
+				power = GameObject.Find ("Main Camera").GetComponent<Objects> ().power;
 				t = Time.time + 3;
 		}
 		// Update is called once per frame
 		void Update ()
 		{
+				//power = GameObject.Find ("Player").GetComponent<PlayerController> ().power;
 				RaycastHit2D hitRight;
 				RaycastHit2D hitLeft;
 				RaycastHit2D hitUp;
