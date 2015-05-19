@@ -11,13 +11,14 @@ public class ControllerForPhone : MonoBehaviour
 		private Animator anim;
 		private bool isFacingLeft = true;
 		public Transform activator;
-		private bool pressedBomb = false;		
+		private bool pressedBomb = false;
 		public float move_x = 0;
 		public float move_y = 0;
 	
 		void Start ()
 		{
 				anim = GetComponent<Animator> ();
+				speed = PlayerPrefs.GetFloat ("speedPlayer", speed); 
 		
 		}
 
@@ -59,7 +60,7 @@ public class ControllerForPhone : MonoBehaviour
 	
 		void FixedUpdate ()
 		{
-				player.Controlling (speed, move_x, move_y);
+				player.Controlling (speed, move_x, move_y);				
 		}
 
 	

@@ -9,18 +9,20 @@ public class PlayerController : MonoBehaviour
 		private bool exists = false;
 		private Animator anim;
 		private bool isFacingLeft = true;
-		public Transform activator;		
+		public Transform activator;
 
 		void Start ()
 		{
 				anim = GetComponent<Animator> ();
+				speed = PlayerPrefs.GetFloat ("speedPlayer", speed);
 				
 		}
 		
 		void FixedUpdate ()
 		{
 				
-				player.Controlling (speed, Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
+				player.Controlling (speed, Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));				
+
 		}
 		
 
@@ -30,9 +32,14 @@ public class PlayerController : MonoBehaviour
 				int x = Mathf.RoundToInt (transform.position.x);
 				int y = Mathf.RoundToInt (transform.position.y);
 
+				
 				anim.SetInteger ("SpeedV", (int)Input.GetAxis ("Vertical"));
 				anim.SetInteger ("SpeedH", (int)Input.GetAxis ("Horizontal"));
 
+				if (Input.GetAxis ("Horizontal") < 0 && !isFacingLeft)
+						Flip ();
+				else if (Input.GetAxis ("Horizontal") > 0 && isFacingLeft)
+						Flip ();
 				
 
 		
@@ -56,10 +63,7 @@ public class PlayerController : MonoBehaviour
 						exists = false;
 				}
 
-				if (Input.GetAxis ("Horizontal") < 0 && !isFacingLeft)
-						Flip ();
-				else if (Input.GetAxis ("Horizontal") > 0 && isFacingLeft)
-						Flip ();
+				
 		}
 
 		private void Flip ()

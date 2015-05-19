@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
 		private int tmp = 0;
 		private int n = 35;
 		private int[] b;
-		public float speed = 5f;
+		public float speed;
 		// Use this for initialization
 		void Start ()
 		{		
@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
 				for (int i = 0; i < n; i++) {
 						b [i] = 0;
 				}
+				speed = PlayerPrefs.GetFloat ("speedEnemy", speed);
 		}
 
 		void OnCollisionEnter2D (Collision2D col)
