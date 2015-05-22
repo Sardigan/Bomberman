@@ -12,7 +12,7 @@ public class Explosion : MonoBehaviour
 
 		void OnTriggerEnter2D (Collider2D col)
 		{
-				if (col.gameObject.name == "Player" || col.gameObject.name == "Enemy") {
+				if (col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy") {
 						Destroy (col.gameObject, 0.2f);
 				}
 		}

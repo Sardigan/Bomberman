@@ -12,13 +12,16 @@ public class ControllerForPhone : MonoBehaviour
 		private bool isFacingLeft = true;
 		public Transform activator;
 		private bool pressedBomb = false;
-		public float move_x = 0;
-		public float move_y = 0;
+		public float move_x;
+		public float move_y;
+		public bool haskey = false;
+		public int power;
 	
 		void Start ()
 		{
 				anim = GetComponent<Animator> ();
 				speed = PlayerPrefs.GetFloat ("speedPlayer", speed); 
+				power = PlayerPrefs.GetInt ("power", power);
 		
 		}
 
@@ -61,6 +64,22 @@ public class ControllerForPhone : MonoBehaviour
 		void FixedUpdate ()
 		{
 				player.Controlling (speed, move_x, move_y);				
+		}
+
+		void OnTriggerEnter2D (Collider2D coll)
+		{
+				if (coll.gameObject.tag == "Key") {
+						haskey = true;
+						Destroy (coll.gameObject);
+				} 
+				if (coll.gameObject.tag == "Power") {
+						power += 5;
+						Destroy (coll.gameObject);
+				}
+				if (coll.gameObject.tag == "Door" && haskey == true) {
+						Application.LoadLevel ("First");
+
+				}
 		}
 
 	

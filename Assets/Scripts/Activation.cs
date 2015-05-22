@@ -19,7 +19,7 @@ public class Activation : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{					
-				power = PlayerPrefs.GetInt ("power", power);
+				power = GameObject.Find ("Player").GetComponent <ControllerForPhone> ().power; 
 				t = Time.time + 3;
 		}
 		// Update is called once per frame
@@ -29,9 +29,8 @@ public class Activation : MonoBehaviour
 				RaycastHit2D hitRight;
 				RaycastHit2D hitLeft;
 				RaycastHit2D hitUp;
-				RaycastHit2D hitDown;
-		
-				//Destroy (gameObject, 2*power + (power + 1) * 0.2f);
+				RaycastHit2D hitDown;		
+				
 
 				int x = (int)transform.position.x;
 				int y = (int)transform.position.y;
@@ -44,27 +43,27 @@ public class Activation : MonoBehaviour
 						hitUp = Physics2D.Raycast (new Vector2 (x, y + pos), Vector2.up, 0);
 						hitDown = Physics2D.Raycast (new Vector2 (x, y - pos), -Vector2.up, 0);
 			
-						if (hitRight.collider != null && (hitRight.collider.name == "Cube" || hitRight.collider.name == "wall4")) {										
+						if (hitRight.collider != null && hitRight.collider.tag == "Block") {										
 								isRightFree = false;
 						}
-						if (hitLeft.collider != null && (hitLeft.collider.name == "Cube" || hitLeft.collider.name == "wall2")) {
+						if (hitLeft.collider != null && hitLeft.collider.tag == "Block") {
 								isLeftFree = false;								
 						}
 			
-						if (hitUp.collider != null && (hitUp.collider.name == "Cube" || hitUp.collider.name == "wall3")) {
+						if (hitUp.collider != null && hitUp.collider.tag == "Block") {
 								isUpFree = false;						
 				
 						}
 			
-						if (hitDown.collider != null && (hitDown.collider.name == "Cube" || hitDown.collider.name == "wall1")) {
+						if (hitDown.collider != null && hitDown.collider.tag == "Block") {
 								isDownFree = false;								
 						}
 			
 						//right
 						if (isRightFree) {
-								Instantiate (explosion, new Vector3 (x + pos, y, transform.position.z), 
+								Instantiate (explosion, new Vector3 (x + pos, y, -1), 
 				             Quaternion.Euler (0, 0, 0));
-								if (hitRight.collider != null && hitRight.collider.name == "box") {										
+								if (hitRight.collider != null && hitRight.collider.tag == "Box") {										
 										isRightFree = false;
 										Destroy (hitRight.transform.gameObject);
 								}
@@ -72,9 +71,9 @@ public class Activation : MonoBehaviour
 			
 						//left						
 						if (isLeftFree) {								
-								Instantiate (explosion, new Vector3 (x - pos, y, transform.position.z), 
+								Instantiate (explosion, new Vector3 (x - pos, y, -1), 
 				             Quaternion.Euler (0, 180, 0));
-								if (hitLeft.collider != null && hitLeft.collider.name == "box") {										
+								if (hitLeft.collider != null && hitLeft.collider.tag == "Box") {										
 										isLeftFree = false;
 										Destroy (hitLeft.transform.gameObject);
 								}
@@ -82,9 +81,9 @@ public class Activation : MonoBehaviour
 			
 						//up						
 						if (isUpFree) {								
-								Instantiate (explosion, new Vector3 (x, y + pos, transform.position.z), 
+								Instantiate (explosion, new Vector3 (x, y + pos, -1), 
 				             Quaternion.Euler (0, 0, 90));	
-								if (hitUp.collider != null && hitUp.collider.name == "box") {										
+								if (hitUp.collider != null && hitUp.collider.tag == "Box") {										
 										isUpFree = false;
 										Destroy (hitUp.transform.gameObject);
 								}
@@ -92,9 +91,9 @@ public class Activation : MonoBehaviour
 			
 						//down						
 						if (isDownFree) {								
-								Instantiate (explosion, new Vector3 (x, y - pos, transform.position.z),	
+								Instantiate (explosion, new Vector3 (x, y - pos, -1),	
 				             Quaternion.Euler (0, 0, 270));	
-								if (hitDown.collider != null && hitDown.collider.name == "box") {										
+								if (hitDown.collider != null && hitDown.collider.tag == "Box") {										
 										isDownFree = false;
 										Destroy (hitDown.transform.gameObject);
 								}
